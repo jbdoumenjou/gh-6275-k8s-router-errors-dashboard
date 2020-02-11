@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute.valid.and.without.pod.svc
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/7`)
+      kind: Rule
+      services:
+        - name: whoami
+          port: 80
+        - name: empty
+          port: 80

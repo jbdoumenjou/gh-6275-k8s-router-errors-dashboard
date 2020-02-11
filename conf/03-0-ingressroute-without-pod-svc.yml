@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute.without.pod.svc
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/3`)
+      kind: Rule
+      services:
+        - name: empty
+          port: 80

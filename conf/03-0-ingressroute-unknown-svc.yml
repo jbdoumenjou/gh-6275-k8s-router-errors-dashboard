@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute.unknown.svc
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/2`)
+      kind: Rule
+      services:
+        - name: bouboubou
+          port: 80
